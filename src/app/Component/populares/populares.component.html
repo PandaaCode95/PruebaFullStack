@@ -1,0 +1,18 @@
+
+<div class="container">
+  <p class="text-center text-white text-uppercase fs-2 fw-bold">Populares</p>
+  <div class="m-3 row justify-content-center" *ngFor="let film of films">
+    <div class="card shadow-sm w-75">
+  <div class="card-body d-flex flex-column align-items-center col-12">
+    <div class="data-film text-dark pb-2 text-center">{{film.title}} </div>
+    <button type="button" class="btn btn-primary btn-sm mx-auto" (click)="showDescription(film)">Descripción</button>
+  </div>
+</div>
+    <div *ngIf="film.id && descriptions[film.id]" class="text-center w-75 text-white fs-6 fs-light mt-3">
+     <p>
+       {{film.original_language | uppercase}} -- {{film.release_date}}
+      </p>
+      {{descriptions[film.id]}}
+    </div>
+  </div>
+</div>
